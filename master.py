@@ -21,8 +21,9 @@ def handle_client(client_socket, connected_clients, client_addresses, clients_lo
         client_socket.close()
 
 def main():
+    ip = input("Enter IP to flood: ")
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_address = ('localhost', 5000)
+    server_address = ('192.168.145.129', 5000)
     server_socket.bind(server_address)
     server_socket.listen(5)
     print("Waiting for connections...")
@@ -34,14 +35,14 @@ def main():
     client_addresses = set()
     clients_lock = threading.Lock()
     addresses_lock = threading.Lock()
-
+    connected_clients,.append()
     while True:
         client_socket, client_address = server_socket.accept()
         handle_client(client_socket, connected_clients, client_addresses, clients_lock, addresses_lock)
         if len(client_addresses) == 1:  
             break
 
-    ip = input("Enter IP to flood: ")
+    
     
     for client_socket in connected_clients:
         try:
