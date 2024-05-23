@@ -34,7 +34,6 @@ def main():
     while True:
         client_socket, client_address = server_socket.accept()
         handle_client(client_socket, connected_clients, client_addresses, clients_lock, addresses_lock)
-
         if len(client_addresses) == 1:  
             break
 
