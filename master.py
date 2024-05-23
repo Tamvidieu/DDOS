@@ -26,6 +26,10 @@ def main():
     server_socket.bind(server_address)
     server_socket.listen(5)
     print("Waiting for connections...")
+
+    # In ra địa chỉ localhost
+    print(f"Localhost Address: {socket.gethostbyname(socket.gethostname())}")
+
     connected_clients = []
     client_addresses = set()
     clients_lock = threading.Lock()
